@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grootboekrak.web", "grootboekrak\grootboekrak.web.csproj", "{F1CCD734-EFF3-4FB4-82A9-C0454975D499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grootboekrak.data", "grootboekrak.data\grootboekrak.data.csproj", "{D377A4BC-1808-40FF-97F0-20A531A68BF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grootboekrak.domain", "grootboekrak.domain\grootboekrak.domain.csproj", "{02EF787C-2228-44F7-A2C5-86148FCC4E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grootboekrak.repository", "grootboekrak.repository\grootboekrak.repository.csproj", "{EF65191C-2C68-4CCD-B967-54E982116F09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1CCD734-EFF3-4FB4-82A9-C0454975D499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CCD734-EFF3-4FB4-82A9-C0454975D499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CCD734-EFF3-4FB4-82A9-C0454975D499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CCD734-EFF3-4FB4-82A9-C0454975D499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D377A4BC-1808-40FF-97F0-20A531A68BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D377A4BC-1808-40FF-97F0-20A531A68BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D377A4BC-1808-40FF-97F0-20A531A68BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D377A4BC-1808-40FF-97F0-20A531A68BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EF787C-2228-44F7-A2C5-86148FCC4E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EF787C-2228-44F7-A2C5-86148FCC4E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EF787C-2228-44F7-A2C5-86148FCC4E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EF787C-2228-44F7-A2C5-86148FCC4E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF65191C-2C68-4CCD-B967-54E982116F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF65191C-2C68-4CCD-B967-54E982116F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF65191C-2C68-4CCD-B967-54E982116F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF65191C-2C68-4CCD-B967-54E982116F09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
