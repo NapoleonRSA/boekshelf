@@ -8,5 +8,10 @@ namespace grootboekrak.Controllers
         {
             return View();
         }
+
+        public JsonResult Create( string titel , string author )
+        {
+            return new JsonResult();
+        }
     }
 }
