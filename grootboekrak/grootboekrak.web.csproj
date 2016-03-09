@@ -116,6 +116,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateBookModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -167,15 +168,25 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Boek\Add.cshtml" />
     <Content Include="Views\Boek\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\grootboekrak.domain\grootboekrak.domain.csproj">
+      <Project>{02EF787C-2228-44F7-A2C5-86148FCC4E18}</Project>
+      <Name>grootboekrak.domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\grootboekrak.repository\grootboekrak.repository.csproj">
+      <Project>{EF65191C-2C68-4CCD-B967-54E982116F09}</Project>
+      <Name>grootboekrak.repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

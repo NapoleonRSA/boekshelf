@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<connectionStrings>
+<add name="MainConnection" connectionString="Trusted_Connection=Yes;persist security info=False;data source=localhost;initial catalog=grootboekrak" />
+</connectionStrings>

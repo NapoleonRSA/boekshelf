@@ -1,0 +1,5 @@
+C:\Development\Git\grootboekrak\grootboekrak.data\bin\Debug\grootboekrak.data.dll
+C:\Development\Git\grootboekrak\grootboekrak.data\bin\Debug\grootboekrak.data.pdb
+C:\Development\Git\grootboekrak\grootboekrak.data\obj\Debug\grootboekrak.data.csprojResolveAssemblyReference.cache
+C:\Development\Git\grootboekrak\grootboekrak.data\obj\Debug\grootboekrak.data.dll
+C:\Development\Git\grootboekrak\grootboekrak.data\obj\Debug\grootboekrak.data.pdb

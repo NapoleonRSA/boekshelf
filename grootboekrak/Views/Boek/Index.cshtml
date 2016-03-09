@@ -1,61 +1,7 @@
-﻿
+﻿@model dynamic
+
 @{
-    ViewBag.Title = "Index";
-
+    ViewBag.Title = "title";
 }
-<script src="~/Scripts/knockout-3.4.0.js"></script>
-<script src="~/Scripts/custom/Custom.js"></script>
 
-<div class="container-fluid">
-    <h1>Books</h1>
-    <h3>A Simple Book Entry</h3>
-    <div id="addBookDiv">
-        <div class="well well-lg">
-            <div class="row">
-                <div class="col-lg-12">
-                    <label class="col-lg-3">Title :</label>
-                    <input class="col-lg-3" data-bind="value: bookTitle" placeholder="...Title of book..." />
-                </div>
-
-            </div>
-            <div class="row">
-                <p>
-                    <div class="col-lg-12">
-                        <label class="col-lg-3">Author :</label>
-                        <input class="col-lg-3" data-bind="value:authorName" placeholder="...Author name..." />
-                    </div>
-                </p>
-            </div>
-            <p>
-                <div class="row text-right">
-
-                    <span> <button class="btn btn-success" data-bind="click:saveBook" data-toggle="tooltip" data-placement="top" title="Click to Submit data"> Save </button></span>
-                    <span><button class="btn btn-danger" data-bind="click:resetInfo" data-toggle="tooltip" data-placement="top" title="Click to clear text"> Reset  </button></span>
-                </div>
-            </p>
-        </div>
-    </div>
-</div>
-@section Scripts{
-    <script>
-        var AddBookViewModel = function() {
-            var self = this
-            self.bookTitle = ko.observable("");
-            self.authorName = ko.observable("");
-            self.saveBook = function() {
-                sendViewModelToController("../Boek/Create", ko.toJSON({ titel: self.bookTitle(), author: self.authorName() }), function() {
-
-                })
-
-            }
-            self.resetInfo = function() {
-                self.bookTitle("");
-                self.authorName("");
-            }
-        }
-        var place = new AddBookViewModel()
-
-        ko.applyBindings(place, document.getElementById("addBookDiv"))
-
-    </script>
-}
+<h2>title</h2>

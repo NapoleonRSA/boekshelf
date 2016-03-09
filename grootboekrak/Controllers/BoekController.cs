@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using grootboekrak.Models;
+using grootboekrak.repository;
 
 namespace grootboekrak.Controllers
 {
@@ -8,9 +10,18 @@ namespace grootboekrak.Controllers
         {
             return View();
         }
-
-        public JsonResult Create( string titel , string author )
+        public ActionResult Add()
         {
+            return View();
+        }
+        public JsonResult Create(CreateBookModel model)
+        {
+            var book = model.ToDomain();
+            using (var bookRepo = new BookRepository())
+            {
+                bookRepo.Create(book);
+            }
+
             return new JsonResult();
         }
     }

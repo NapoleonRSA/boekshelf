@@ -1,0 +1,10 @@
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\grootboekrak.repository.dll
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\grootboekrak.repository.pdb
+C:\Development\Git\grootboekrak\grootboekrak.repository\obj\Debug\grootboekrak.repository.csprojResolveAssemblyReference.cache
+C:\Development\Git\grootboekrak\grootboekrak.repository\obj\Debug\grootboekrak.repository.dll
+C:\Development\Git\grootboekrak\grootboekrak.repository\obj\Debug\grootboekrak.repository.pdb
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\Dapper.dll
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\grootboekrak.domain.dll
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\grootboekrak.domain.pdb
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\Dapper.pdb
+C:\Development\Git\grootboekrak\grootboekrak.repository\bin\Debug\Dapper.xml
