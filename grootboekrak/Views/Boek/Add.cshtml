@@ -44,7 +44,7 @@
             self.author = ko.observable("");
             self.saveBook = function() {
                 sendViewModelToController("Boek/Create", ko.toJSON(self), function () {
-                    alert("done")
+                    alert("done");
                 });
             };
             self.resetInfo = function() {
