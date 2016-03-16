@@ -48,6 +48,10 @@
     <Compile Include="RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\grootboekrak.data\grootboekrak.data.csproj">
+      <Project>{D377A4BC-1808-40FF-97F0-20A531A68BF6}</Project>
+      <Name>grootboekrak.data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\grootboekrak.domain\grootboekrak.domain.csproj">
       <Project>{02EF787C-2228-44F7-A2C5-86148FCC4E18}</Project>
       <Name>grootboekrak.domain</Name>

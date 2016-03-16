@@ -5,3 +5,39 @@
 }
 
 <h2>Inventory List</h2>
+
+<div class="container-fluid row" id="listDiv">
+    <div class=" jumbotron col-lg-8">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Title</td>
+                <td>Author</td>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach: books">
+            <tr>
+                <td data-bind="text: Id"></td>
+                <td data-bind="text: Title"></td>
+                <td data-bind="text: Author"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var model = @Html.Raw(Json.Encode(Model));
+
+        var BookViewModel = function() {
+            var self = this;
+            self.books = ko.observableArray(model.Books);
+
+        }
+
+        ko.applyBindings(new BookViewModel(), document.getElementById("listDiv"));
+    </script>
+}

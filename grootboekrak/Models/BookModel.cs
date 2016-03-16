@@ -1,6 +1,6 @@
-﻿namespace grootboekrak.domain
+namespace grootboekrak.Models
 {
-    public class Book
+    public class BookModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

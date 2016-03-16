@@ -8,7 +8,11 @@ namespace grootboekrak.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var bookRepo = new BookRepository();
+            var books = bookRepo.GetMany();
+
+            var model = BookIndexModel.FromDomain(books);
+            return View(model);
         }
         public ActionResult Add()
         {
