@@ -48,13 +48,17 @@
     <Compile Include="RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\grootboekrak.data\grootboekrak.data.csproj">
+      <Project>{D377A4BC-1808-40FF-97F0-20A531A68BF6}</Project>
+      <Name>grootboekrak.data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\grootboekrak.domain\grootboekrak.domain.csproj">
-      <Project>{0018E228-6EFA-43D9-9E37-24C3EEC2AB5B}</Project>
+      <Project>{02EF787C-2228-44F7-A2C5-86148FCC4E18}</Project>
       <Name>grootboekrak.domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

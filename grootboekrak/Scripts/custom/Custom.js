@@ -113,3 +113,11 @@ var containsSubstring = function (stringValue, substringValue) {
     substringValue = substringValue.replace(/ /g, '');
     return stringValue.toLowerCase().indexOf(substringValue.toLowerCase()) >= 0;
 }
+
+var changeLocation = function (newLocation, prefixRootUrlToGivenNewLocation) {
+   
+    setTimeout(function () {
+        location = getLocation(newLocation, prefixRootUrlToGivenNewLocation);
+    }, 0);
+}
+

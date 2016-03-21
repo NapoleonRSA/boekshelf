@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using grootboekrak.domain;
 using grootboekrak.Models;
 using grootboekrak.repository;
 
@@ -8,11 +9,13 @@ namespace grootboekrak.Controllers
     {
         public ActionResult Index()
         {
-            var bookRepo = new BookRepository();
-            var books = bookRepo.GetMany();
+            using (var bookRepo = new BookRepository())
+            {
+                var books = bookRepo.GetMany();
 
-            var model = BookIndexModel.FromDomain(books);
-            return View(model);
+                var model = BookIndexModel.FromDomain(books);
+                return View(model);
+            }
         }
         public ActionResult Add()
         {
@@ -28,5 +31,19 @@ namespace grootboekrak.Controllers
 
             return new JsonResult();
         }
+
+        public ActionResult Edit(int id)
+        {
+            using (var bookRepo = new BookRepository())
+            {
+                var book = bookRepo.Get(id);
+
+                var model = BookModel.FromDomain(book);
+
+            return View(model);
+
+            }
+        }
+        
     }
 }

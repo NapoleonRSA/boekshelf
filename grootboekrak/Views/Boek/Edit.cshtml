@@ -1,0 +1,52 @@
+﻿@model grootboekrak.Models.BookModel
+
+@{
+    ViewBag.Title = "title";
+  
+}
+
+<h1>Edit Books Here</h1>
+<br/>
+<div class="container-fluid" id="editDiv">
+    <div class="jumbotron">
+        <div class=" row">
+            <label> Title</label>
+        </div>
+        <div class="row">
+            <input data-bind="value : title "/>
+        </div>
+        <div class=" row">
+            <label> Author</label>
+        </div>
+        <div class="row">
+            <input data-bind="value : author "/>
+        </div>
+        <p>
+            <div class="row">
+                <span> <button type="button" class="btn btn-default " data-toggle ="tooltip" title="Save Current Changes "  > Save </button></span>
+                <span> <button type="button" class="btn btn-default " data-toggle="tooltip" title="Return to list " value="cancel" data-bind="click: cancelClick"> Cancel </button></span>
+            </div>
+        </p>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        var model = @Html.Raw(Json.Encode(Model));
+
+        var EditBookViewModel = function() {
+            var self = this;
+            self.title = ko.observableArray(model.title);
+            self.author = ko.observable("");
+            console.log(self.title);
+            self.saveBook = function () {
+             
+
+            };
+            self.cancelClick = function() {
+                changeLocation("Boek/", true);
+            }
+        }
+        var place = new EditBookViewModel();
+        ko.applyBindings(place, document.getElementById("editDiv"));
+    </script>
+}

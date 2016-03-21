@@ -7,7 +7,7 @@
 <h2>Inventory List</h2>
 
 <div class="container-fluid row" id="listDiv">
-    <div class=" jumbotron col-lg-8">
+    <div class=" jumbotron">
         <table class="table">
             <thead>
             <tr>
@@ -21,6 +21,7 @@
                 <td data-bind="text: Id"></td>
                 <td data-bind="text: Title"></td>
                 <td data-bind="text: Author"></td>
+                <td><button class="btn btn-group-sm btn-success " data-bind ="click: $parent.editClick ">Edit</button> </td>
             </tr>
             </tbody>
         </table>
@@ -36,7 +37,11 @@
             var self = this;
             self.books = ko.observableArray(model.Books);
 
-        }
+            self.editClick = function(book) {
+                changeLocation("Boek/Edit/" + book.Id, true);
+
+            };
+        };
 
         ko.applyBindings(new BookViewModel(), document.getElementById("listDiv"));
     </script>
