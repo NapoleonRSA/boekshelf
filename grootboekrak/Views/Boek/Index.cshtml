@@ -21,7 +21,8 @@
                 <td data-bind="text: Id"></td>
                 <td data-bind="text: Title"></td>
                 <td data-bind="text: Author"></td>
-                <td><button class="btn btn-group-sm btn-success " data-bind ="click: $parent.editClick ">Edit</button> </td>
+                <td><button class="btn btn-group-sm btn-success " data-bind ="click: $parent.editClick ">Edit</button>
+                <button class="btn btn-group-sm btn-danger " data-bind ="click: $parent.deleteClick ">Delete</button></td>
             </tr>
             </tbody>
         </table>
@@ -39,8 +40,10 @@
 
             self.editClick = function(book) {
                 changeLocation("Boek/Edit/" + book.Id, true);
-
             };
+            self.deleteClick = function() {
+                
+            }
         };
 
         ko.applyBindings(new BookViewModel(), document.getElementById("listDiv"));

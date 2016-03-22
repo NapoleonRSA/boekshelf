@@ -23,7 +23,7 @@
         </div>
         <p>
             <div class="row">
-                <span> <button type="button" class="btn btn-default " data-toggle ="tooltip" title="Save Current Changes "  > Save </button></span>
+                <span> <button type="button" class="btn btn-default " data-toggle ="tooltip" title="Save Current Changes " data-bind ="click : saveClick" > Save </button></span>
                 <span> <button type="button" class="btn btn-default " data-toggle="tooltip" title="Return to list " value="cancel" data-bind="click: cancelClick"> Cancel </button></span>
             </div>
         </p>
@@ -35,12 +35,14 @@
 
         var EditBookViewModel = function() {
             var self = this;
+            self.id = model.Id;
             self.title = ko.observable(model.Title);
             self.author = ko.observable(model.Author);
-            console.log(self.title);
-            self.saveBook = function () {
-             
-
+            self.saveClick = function () {
+                sendViewModelToController("Boek/Update", ko.toJSON(self), function () {
+                    alert("Book Successfully Updated");
+                    changeLocation("Boek/", true);
+                });
             };
             self.cancelClick = function() {
                 changeLocation("Boek/", true);

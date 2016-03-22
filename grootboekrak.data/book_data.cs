@@ -1,4 +1,5 @@
-﻿using grootboekrak.domain;
+﻿using System;
+using grootboekrak.domain;
 
 namespace grootboekrak.data
 {
@@ -15,6 +16,16 @@ namespace grootboekrak.data
                 Id = id,
                 Title = title,
                 Author = author
+            };
+        }
+
+        public static book_data FromDomain(Book book)
+        {
+            return new book_data()
+            {
+                id = book.Id,
+                title = book.Title,
+                author = book.Author
             };
         }
     }

@@ -36,5 +36,15 @@ namespace grootboekrak.repository
             return book_data.ToDomain();
 
         }
+
+        public void Update(Book book)
+        {
+            var sql = @"UPDATE book SET 
+                        title = @title,
+                        author = @author
+                        WHERE id = @id";
+            _db.Execute(sql, book_data.FromDomain(book));
+        }
     }
 }
+

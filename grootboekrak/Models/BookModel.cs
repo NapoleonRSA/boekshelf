@@ -17,5 +17,15 @@ namespace grootboekrak.Models
                 Author = book.Author
             };
         }
+
+        public  Book ToDomain()
+        {
+            return new Book
+            {
+                Id = Id,
+                Title = Title,
+                Author = Author
+            };
+        }
     }
 }

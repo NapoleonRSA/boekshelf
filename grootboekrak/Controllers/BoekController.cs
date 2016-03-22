@@ -29,7 +29,20 @@ namespace grootboekrak.Controllers
                 bookRepo.Create(book);
             }
 
-            return new JsonResult();
+            return new JsonResult{Data = new{IsOk = true}};
+        }
+
+        public JsonResult Update(BookModel model)
+        {
+
+            var book = model.ToDomain();
+            using (var bookRepo = new BookRepository())
+            {
+                bookRepo.Update(book);
+            }
+
+            return new JsonResult { Data = new { IsOk = true } };
+            
         }
 
         public ActionResult Edit(int id)
