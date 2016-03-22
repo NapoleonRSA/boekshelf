@@ -35,8 +35,8 @@
 
         var EditBookViewModel = function() {
             var self = this;
-            self.title = ko.observableArray(model.title);
-            self.author = ko.observable("");
+            self.title = ko.observable(model.Title);
+            self.author = ko.observable(model.Author);
             console.log(self.title);
             self.saveBook = function () {
              
