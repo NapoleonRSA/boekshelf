@@ -45,6 +45,13 @@ namespace grootboekrak.repository
                         WHERE id = @id";
             _db.Execute(sql, book_data.FromDomain(book));
         }
+
+        public void Delete(int id)
+        {
+            var sql = @"Delete FROM book 
+                        WHERE id = @id";
+            _db.Execute(sql, new{id});
+        }
     }
 }
 

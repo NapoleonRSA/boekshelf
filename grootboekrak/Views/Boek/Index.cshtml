@@ -37,14 +37,17 @@
         var BookViewModel = function() {
             var self = this;
             self.books = ko.observableArray(model.Books);
-
+            self.id = ko.observable()
             self.editClick = function(book) {
                 changeLocation("Boek/Edit/" + book.Id, true);
             };
-            self.deleteClick = function() {
-                
-            }
+            self.deleteClick = function(book) {
+                changeLocation("Boek/Delete/" + book.Id, true);
+
+            };
+            
         };
+       
 
         ko.applyBindings(new BookViewModel(), document.getElementById("listDiv"));
     </script>

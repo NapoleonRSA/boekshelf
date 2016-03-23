@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using grootboekrak.domain;
 using grootboekrak.Models;
 using grootboekrak.repository;
@@ -43,6 +44,16 @@ namespace grootboekrak.Controllers
 
             return new JsonResult { Data = new { IsOk = true } };
             
+        }
+
+        public ActionResult Delete(int id)
+        {
+          
+            using (var bookRepo = new BookRepository())
+            {
+                bookRepo.Delete(id);
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult Edit(int id)
