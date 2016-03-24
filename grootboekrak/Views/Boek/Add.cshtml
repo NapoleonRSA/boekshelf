@@ -1,14 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 
 }
 <script src="~/Scripts/knockout-3.4.0.js"></script>
 <script src="~/Scripts/custom/Custom.js"></script>
 
+<body>
+.bo
+</body>
 <div class="container-fluid">
-    <h1>Books</h1>
-    <h3>A Simple Book Entry</h3>
+    <h1 style="color: #e6e6fa">Books</h1>
+    <h3 style="color: #e6e6fa">A Simple Book Entry</h3>
     <div id="addBookDiv">
         <div class="well well-lg">
             <div class="row">
@@ -45,7 +47,8 @@
             self.saveBook = function() {
                 sendViewModelToController("Boek/Create", ko.toJSON(self), function () {
                     alert("done");
-                });
+                    changeLocation("Boek/Add",true);
+                });     
             };
             self.resetInfo = function() {
                 self.title("");

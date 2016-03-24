@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Inventory List</h2>
+<h2 style="color: #e6e6fa">Inventory List</h2>
 
 <div class="container-fluid row" id="listDiv">
     <div class=" jumbotron">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <td>Id</td>
@@ -37,17 +37,15 @@
         var BookViewModel = function() {
             var self = this;
             self.books = ko.observableArray(model.Books);
-            self.id = ko.observable()
+            self.id = ko.observable();
             self.editClick = function(book) {
                 changeLocation("Boek/Edit/" + book.Id, true);
             };
             self.deleteClick = function(book) {
                 changeLocation("Boek/Delete/" + book.Id, true);
-
+                alert("Book Deleted");
             };
-            
         };
-       
 
         ko.applyBindings(new BookViewModel(), document.getElementById("listDiv"));
     </script>
