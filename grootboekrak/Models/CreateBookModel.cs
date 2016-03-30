@@ -6,13 +6,17 @@ namespace grootboekrak.Models
     {
         public string Title { get; set; }
         public string Author { get; set; }
+        public string Genres { get; set; }
+        public string Published { get; set; }
 
         public Book ToDomain()
         {
             return new Book
             {
                 Title = Title,
-                Author = Author
+                Author = Author,
+                Genres = Genres,
+                Published = Published
             };
         }
     }

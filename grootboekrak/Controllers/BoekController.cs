@@ -20,7 +20,7 @@ namespace grootboekrak.Controllers
         public ActionResult Add()
         {
             return View();
-        }
+        } 
 
         public JsonResult Create(CreateBookModel model)
         {

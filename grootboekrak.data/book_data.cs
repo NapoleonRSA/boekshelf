@@ -8,6 +8,8 @@ namespace grootboekrak.data
         public int id { get; set; }
         public string title { get; set; }
         public string author { get; set; }
+        public string  genres { get; set; }
+        public string date { get; set; }
 
         public Book ToDomain()
         {
@@ -15,7 +17,9 @@ namespace grootboekrak.data
             {
                 Id = id,
                 Title = title,
-                Author = author
+                Author = author,
+                Genres = genres,
+                Published = date
             };
         }
 
@@ -25,7 +29,9 @@ namespace grootboekrak.data
             {
                 id = book.Id,
                 title = book.Title,
-                author = book.Author
+                author = book.Author,
+                genres = book.Genres,
+                date = book.Published,
             };
         }
     }

@@ -5,28 +5,45 @@
   
 }
 
-<h1>Edit Books Here</h1>
+<h1 style ="color: #e6e6fa">Edit Books Here</h1>
 <br/>
 <div class="container-fluid" id="editDiv">
     <div class="jumbotron">
         <div class=" row">
-            <label> Title</label>
+            <label> Title :</label>
         </div>
         <div class="row">
-            <input data-bind="value : title "/>
+            <input class="form-control" data-bind="value : title "/>
         </div>
+        <br/>
         <div class=" row">
-            <label> Author</label>
+            <label> Author :</label>
         </div>
         <div class="row">
-            <input data-bind="value : author "/>
+            <input class="form-control"data-bind="value : author "/>
         </div>
-        <p>
-            <div class="row">
-                <span> <button type="button" class="btn btn-default " data-toggle ="tooltip" title="Save Current Changes " data-bind ="click : saveClick" > Save </button></span>
-                <span> <button type="button" class="btn btn-default " data-toggle="tooltip" title="Return to list " value="cancel" data-bind="click: cancelClick"> Cancel </button></span>
-            </div>
-        </p>
+        <br/>
+        <div class=" row">
+            <label>Genres :</label>
+        </div>
+        <div class="row">
+            <select class="form-control" data-bind="options: possibleGenres, value: genres, optionsCaption: 'Select a genre...'"></select>
+        </div>
+        <br/>
+        <div class="row">
+
+            <label>Published :</label>
+
+        </div>
+        <div class ="row">
+           <input class=" form-control" type="date" data-bind="value:published" placeholder="dd / mm / yyyy" maxlength="10" />
+             
+        </div>
+        <br/>
+        <div class="row">
+            <span> <button type="button" class="btn btn-default " data-toggle ="tooltip" title="Save Current Changes " data-bind ="click : saveClick" > Save </button></span>
+            <span> <button type="button" class="btn btn-default " data-toggle="tooltip" title="Return to list " value="cancel" data-bind="click: cancelClick"> Cancel </button></span>
+        </div>
     </div>
 </div>
 @section Scripts{
@@ -38,8 +55,11 @@
             self.id = model.Id;
             self.title = ko.observable(model.Title);
             self.author = ko.observable(model.Author);
-            self.saveClick = function () {
-                sendViewModelToController("Boek/Update", ko.toJSON(self), function () {
+            self.possibleGenres = ["Fiction", "Non-Fiction" , "Drama" ];
+            self.genres = ko.observable(model.Genres);
+            self.published = ko.observable(model.Published);
+            self.saveClick = function() {
+                sendViewModelToController("Boek/Update", ko.toJSON(self), function() {
                     alert("Book Successfully Updated");
                     changeLocation("Boek/", true);
                 });

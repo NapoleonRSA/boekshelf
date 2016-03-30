@@ -16,7 +16,9 @@ namespace grootboekrak.Models
                 {
                     Id = book.Id,
                     Title = book.Title,
-                    Author = book.Author
+                    Author = book.Author,
+                    Genres = book.Genres,
+                    Published = book.Published
                 });
             }
 

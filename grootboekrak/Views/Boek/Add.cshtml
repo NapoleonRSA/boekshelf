@@ -1,40 +1,58 @@
 ﻿@{
     ViewBag.Title = "Index";
-
 }
 <script src="~/Scripts/knockout-3.4.0.js"></script>
 <script src="~/Scripts/custom/Custom.js"></script>
 
-<body>
-.bo
-</body>
 <div class="container-fluid">
     <h1 style="color: #e6e6fa">Books</h1>
-    <h3 style="color: #e6e6fa">A Simple Book Entry</h3>
+    <h3 style="color: #e6e6fa">Enter book details</h3>
+    <br/>
     <div id="addBookDiv">
         <div class="well well-lg">
+            <br/>
             <div class="row">
-                <div class="col-lg-12">
-                    <label class="col-lg-3">Title :</label>
-                    <input class="col-lg-3" data-bind="value: title" placeholder="...Title of book..." />
+               <div class="col-lg-12 , col-lg-offset-1">
+                    <label class="col-lg-3">Title  : </label>
+                    <input class="col-lg-3 form-control" data-bind="value: title" placeholder="Title of book"/>
                 </div>
 
             </div>
             <div class="row">
                 <p>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 , col-lg-offset-1">
                         <label class="col-lg-3">Author :</label>
-                        <input class="col-lg-3" data-bind="value:author" placeholder="...Author name..." />
+                        <input class="col-lg-3 form-control" data-bind="value:author" placeholder="Author Name"/>
                     </div>
                 </p>
             </div>
-            <p>
-                <div class="row text-right">
 
-                    <span> <button class="btn btn-success" data-bind="click:saveBook" data-toggle="tooltip" data-placement="top" title="Click to Submit data"> Save </button></span>
+            <div class="row">
+                <p>
+                    <div class="col-lg-12 , col-lg-offset-1">
+                        <label class="col-lg-3">Genres :</label>
+                        <select class="col-lg-3 form-control " data-bind="options: possibleGenres, value: genres, optionsCaption: 'Select a genre...'"></select>
+                    </div>
+                </p>
+            </div>
+            <div class="row">
+                <p>
+                    <div class="col-lg-12 , col-lg-offset-1">
+                        <label class="col-lg-3">Published :</label>
+                        <input class="col-lg-3 form-control" type="date" data-bind="value:published" placeholder="dd / mm / yyyy" maxlength="10" />
+                    </div>
+                </p>
+
+            </div>
+            <br/>
+            <br/>
+                <div class="row">
+                    <div class="col-lg-12 col-lg-push-10">
+                    <span> <button class="btn btn-success" data-bind="click:saveBook" data-toggle="tooltip" data-placement="top" title="Click to Submit book"> Save </button></span>
                     <span><button class="btn btn-danger" data-bind="click:resetInfo" data-toggle="tooltip" data-placement="top" title="Click to clear text"> Reset  </button></span>
+                    </div>
                 </div>
-            </p>
+           
         </div>
     </div>
 </div>
@@ -44,15 +62,19 @@
             var self = this;
             self.title = ko.observable("");
             self.author = ko.observable("");
-            self.saveBook = function() {
-                sendViewModelToController("Boek/Create", ko.toJSON(self), function () {
+            self.possibleGenres = ["Fiction", "Non-Fiction", "Drama"];
+            self.genres = ko.observable("");
+            self.published = ko.observable("");
+            self.saveBook = function () {
+                sendViewModelToController("Boek/Create", ko.toJSON(self), function() {
                     alert("done");
-                    changeLocation("Boek/Add",true);
-                });     
+                    changeLocation("Boek/Add/", true);
+                });
             };
             self.resetInfo = function() {
                 self.title("");
-                self.authorName("");
+                self.author("");
+                changeLocation("Boek/Add/", true);
             };
         };
         var place = new AddBookViewModel();

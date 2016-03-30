@@ -10,9 +10,9 @@ namespace grootboekrak.repository
         public void Create(Book book)
         {
             var sql = @"INSERT INTO book 
-                        (title, author)
+                        (title, author, genres, date)
                         VALUES
-                        (@Title, @Author)";
+                        (@Title, @Author, @Genres, @Published )";
 
             _db.Execute(sql, book);
         }
@@ -41,7 +41,9 @@ namespace grootboekrak.repository
         {
             var sql = @"UPDATE book SET 
                         title = @title,
-                        author = @author
+                        author = @author,
+                        genres = @genres,
+                        date = @date
                         WHERE id = @id";
             _db.Execute(sql, book_data.FromDomain(book));
         }

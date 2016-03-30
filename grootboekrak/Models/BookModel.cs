@@ -7,6 +7,8 @@ namespace grootboekrak.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
+        public string Genres { get; set; }
+        public string Published { get; set; }
 
         public static BookModel FromDomain(Book book)
         {
@@ -14,7 +16,9 @@ namespace grootboekrak.Models
             {
                 Id = book.Id,
                 Title = book.Title,
-                Author = book.Author
+                Author = book.Author,
+                Genres = book.Genres,
+                Published = book.Published
             };
         }
 
@@ -24,7 +28,9 @@ namespace grootboekrak.Models
             {
                 Id = Id,
                 Title = Title,
-                Author = Author
+                Author = Author,
+                Genres = Genres,
+                Published = Published
             };
         }
     }

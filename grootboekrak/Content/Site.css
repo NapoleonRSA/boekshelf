@@ -2,6 +2,8 @@
     background-image: url("kells trinity library.jpg");
     padding-top: 50px;
     padding-bottom: 20px;
+    background-repeat:no-repeat;
+   background-size:cover;
 }
 
 /* Set padding to keep content from hitting the edges */
