@@ -1,11 +1,9 @@
-﻿@model grootboekrak.Models.BookModel
-
+﻿
 @{
     ViewBag.Title = "title";
-  
 }
 
-<h1 style ="color: #e6e6fa">Edit Books Here</h1>
+<h1 style="color: #e6e6fa">Edit Books Here</h1>
 <br/>
 <div class="container-fluid" id="editDiv">
     <div class="jumbotron">
@@ -35,14 +33,14 @@
             <label>Published :</label>
 
         </div>
-        <div class ="row">
-           <input class=" form-control" type="date" data-bind="value:published" placeholder="dd / mm / yyyy" maxlength="10" />
-             
+        <div class="row">
+            <input class=" form-control" type="date" data-bind="value:published" placeholder="dd / mm / yyyy" maxlength="10"/>
+
         </div>
         <br/>
         <div class="row">
-            <span> <button type="button" class="btn btn-default " data-toggle ="tooltip" title="Save Current Changes " data-bind ="click : saveClick" > Save </button></span>
-            <span> <button type="button" class="btn btn-default " data-toggle="tooltip" title="Return to list " value="cancel" data-bind="click: cancelClick"> Cancel </button></span>
+            <span> <button type="button" class="btn btn-success " data-toggle ="tooltip" title="Save Current Changes " data-bind ="click : saveClick" ><i class="glyphicon glyphicon-floppy-save"></i> Save </button></span>
+            <span> <button type="button" class="btn btn-danger " data-toggle="tooltip" title="Return to list " value="cancel" data-bind="click: cancelClick"> Cancel </button></span>
         </div>
     </div>
 </div>
@@ -55,7 +53,7 @@
             self.id = model.Id;
             self.title = ko.observable(model.Title);
             self.author = ko.observable(model.Author);
-            self.possibleGenres = ["Fiction", "Non-Fiction" , "Drama" ];
+            self.possibleGenres = ["Fiction", "Non-Fiction", "Drama"];
             self.genres = ko.observable(model.Genres);
             self.published = ko.observable(model.Published);
             self.saveClick = function() {
@@ -66,8 +64,8 @@
             };
             self.cancelClick = function() {
                 changeLocation("Boek/", true);
-            }
-        }
+            };
+        };
         var place = new EditBookViewModel();
         ko.applyBindings(place, document.getElementById("editDiv"));
     </script>

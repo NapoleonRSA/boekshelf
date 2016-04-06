@@ -12,8 +12,8 @@
         <div class="well well-lg">
             <br/>
             <div class="row">
-               <div class="col-lg-12 , col-lg-offset-1">
-                    <label class="col-lg-3">Title  : </label>
+                <div class="col-lg-12 , col-lg-offset-1">
+                    <label class="col-lg-3">Title : </label>
                     <input class="col-lg-3 form-control" data-bind="value: title" placeholder="Title of book"/>
                 </div>
 
@@ -39,20 +39,20 @@
                 <p>
                     <div class="col-lg-12 , col-lg-offset-1">
                         <label class="col-lg-3">Published :</label>
-                        <input class="col-lg-3 form-control" type="date" data-bind="value:published" placeholder="dd / mm / yyyy" maxlength="10" />
+                        <input class="col-lg-3 form-control" type="date" data-bind="value:published" placeholder="dd / mm / yyyy" maxlength="10"/>
                     </div>
                 </p>
 
             </div>
             <br/>
             <br/>
-                <div class="row">
-                    <div class="col-lg-12 col-lg-push-10">
-                    <span> <button class="btn btn-success" data-bind="click:saveBook" data-toggle="tooltip" data-placement="top" title="Click to Submit book"> Save </button></span>
-                    <span><button class="btn btn-danger" data-bind="click:resetInfo" data-toggle="tooltip" data-placement="top" title="Click to clear text"> Reset  </button></span>
-                    </div>
+            <div class="row">
+                <div class="col-lg-12 col-lg-push-10">
+                    <span> <button class="btn btn-success" data-bind="click:saveBook" data-toggle="tooltip" data-placement="top" title="Click to Submit book"><i class="glyphicon glyphicon-floppy-save"></i> Save </button></span>
+                    <span><button class="btn btn-danger" data-bind="click:resetInfo" data-toggle="tooltip" data-placement="top" title="Click to clear text"><i class="glyphicon glyphicon-refresh"></i> Reset  </button></span>
                 </div>
-           
+            </div>
+
         </div>
     </div>
 </div>
@@ -65,7 +65,7 @@
             self.possibleGenres = ["Fiction", "Non-Fiction", "Drama"];
             self.genres = ko.observable("");
             self.published = ko.observable("");
-            self.saveBook = function () {
+            self.saveBook = function() {
                 sendViewModelToController("Boek/Create", ko.toJSON(self), function() {
                     alert("done");
                     changeLocation("Boek/Add/", true);
