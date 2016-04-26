@@ -8,39 +8,86 @@
 <br/>
 <div class="container-fluid row" id="listDiv">
     <div class=" jumbotron">
-        <table class="table table-hover">
+        <input class="form-control" data-bind=" value: searchText , valueUpdate: 'keyup' " placeholder="Search for Book"/>
+        <hr/>
+        <table class="table table-condensed">
             <thead>
             <tr>
-                <td>Id</td>
-                <td>Title</td>
-                <td>Author</td>
-                <td>Genres</td>
-                <td>Published</td>
+                <td><h4><strong>Id</strong></h4></td>
+                <td><h4><strong>Title</strong></h4></td>
+                <td><h4><strong>Author</strong></h4></td>
+                <td><h4><strong>Genres</strong></h4></td>
+                <td><h4><strong>Published</strong></h4></td>
             </tr>
             </thead>
-            <tbody data-bind="foreach: books">
+            <tbody data-bind="foreach: filterBooks">
             <tr>
                 <td data-bind="text: Id"></td>
                 <td data-bind="text: Title"></td>
                 <td data-bind="text: Author"></td>
                 <td data-bind="text: Genres"></td>
                 <td data-bind="text: Published"></td>
-                <td><button class="btn btn-group-sm btn-success " data-bind ="click: $parent.editClick "><i class="glyphicon glyphicon-edit"></i> Edit</button>
-                <button class="btn btn-group-sm btn-danger " data-bind ="click: $parent.deleteClick "> <i class="glyphicon glyphicon-trash"></i> Delete</button></td>
+                <td>
+                    <button class="btn btn-group-sm btn-success " data-bind="click: $parent.editClick "><i class="glyphicon glyphicon-edit"></i> Edit</button>
+                    <button class="btn btn-group-sm btn-danger " data-bind="click: $parent.deleteClick "> <i class="glyphicon glyphicon-trash"></i> Delete</button>
+                </td>
             </tr>
             </tbody>
         </table>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <i class="glyphicon glyphicon-filter"></i>
+                Filter
+            </button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Choose Filter Settings</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <label class="col-lg-3">Genres :</label>
+                                <select class=" form-control " data-bind="options: possibleGenres, value: genre, optionsCaption: 'Select a genre...'"></select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-bind="click: filterClick">Display changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-@section scripts
-{
+@section scripts{
     <script>
         var model = @Html.Raw(Json.Encode(Model));
-
         var BookViewModel = function() {
             var self = this;
+            self.searchText = ko.observable();
+
+            self.searchText.subscribe(function() {
+
+                self.filterBooks([]);
+                ko.utils.arrayForEach(self.books(),
+                    function(book) {
+
+                        if (book.Genres.indexOf(self.searchText()) > -1 || book.Title.indexOf(self.searchText()) > -1
+                        ) {
+                            self.filterBooks.push(book);
+                        }
+                    });
+            });
+
+            self.possibleGenres = ["All", "Fiction", "Non-Fiction", "Drama" , "Horror"];
             self.books = ko.observableArray(model.Books);
+            self.filterBooks = ko.observableArray(model.Books);
+            self.genre = ko.observable("");
             self.id = ko.observable();
             self.editClick = function(book) {
                 changeLocation("Boek/Edit/" + book.Id, true);
@@ -49,8 +96,23 @@
                 changeLocation("Boek/Delete/" + book.Id, true);
                 alert("Book Deleted");
             };
-        };
+            self.filterClick = function() {
+                alert(self.genre());
+                self.filterBooks([]);
+                if (self.genre() === "All") {
+                    self.filterBooks(self.books());
+                    return;
 
+                }
+                ko.utils.arrayForEach(self.books(),
+                    function(book) {
+
+                        if (book.Genres === self.genre()) {
+                            self.filterBooks.push(book);
+                        }
+                    });
+            };
+        };
         ko.applyBindings(new BookViewModel(), document.getElementById("listDiv"));
     </script>
 }

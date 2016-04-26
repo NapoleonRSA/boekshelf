@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.Razor;
+using grootboekrak.domain;
 using grootboekrak.Models;
 using grootboekrak.repository;
 
@@ -17,6 +20,7 @@ namespace grootboekrak.Controllers
             }
         }
 
+       
         public ActionResult Add()
         {
             return View();
