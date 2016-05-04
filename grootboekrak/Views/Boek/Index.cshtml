@@ -18,10 +18,12 @@
                     </a>
                 </li>
                 <!-- ko foreach: pageNumbers-->
-                    <li><a data-bind="text: $data, css:{'btn-primary active':$data===$parent.currentPage() +1},click: $parent.changeCurrentPage " href="#"></a></li>
+                <li>
+                    <a data-bind="text: $data, css:{'btn-primary active':$data===$parent.currentPage() +1},click: $parent.changeCurrentPage " href="#"></a>
+                </li>
                 <!--/ko-->
                 <li>
-                    <a href="#" aria-label="Next" data-bind="click: nextClick" >
+                    <a href="#" aria-label="Next" data-bind="click: nextClick">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
@@ -30,11 +32,31 @@
         <table class="table table-condensed ">
             <thead>
             <tr>
-                <td><h4><strong>Id</strong></h4></td>
-                <td><h4><strong>Title</strong></h4></td>
-                <td><h4><strong>Author</strong></h4></td>
-                <td><h4><strong>Genres</strong></h4></td>
-                <td><h4><strong>Published</strong></h4></td>
+                <td>
+                    <h4>
+                        <strong>Id</strong>
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <strong>Title</strong>
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <strong>Author</strong>
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <strong>Genres</strong>
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <strong>Published</strong>
+                    </h4>
+                </td>
             </tr>
             </thead>
             <tbody data-bind="foreach: pageFilteredBooks">
@@ -132,12 +154,13 @@
             };
 
             self.currentPage = ko.observable(0);
-            var pageSize = 10;
+            var pageSize = 8;
             self.pageFilteredBooks = ko.computed(function() {
-                
-                var startIndex = self.currentPage() * pageSize ;
-                return self.filterBooks.slice(startIndex, startIndex + pageSize);
-            }, self);
+
+                    var startIndex = self.currentPage() * pageSize;
+                    return self.filterBooks.slice(startIndex, startIndex + pageSize);
+                },
+                self);
 
             self.pageNumbers = ko.computed(function() {
                 var numberofpages = self.filterBooks().length / pageSize;
@@ -149,7 +172,7 @@
             });
             self.changeCurrentPage = function(pageNumber) {
                 self.currentPage(pageNumber - 1);
-            }
+            };
             self.backClick = function() {
                 if (self.currentPage() === 0) {
                     return;
